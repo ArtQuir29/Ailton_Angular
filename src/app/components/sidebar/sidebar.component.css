@@ -1,4 +1,5 @@
-.sidebar {
-    background-color: blueviolet;
-    
+*{
+    background-color: rgb(158, 245, 158);
+    padding: 20px;
+    height: 95vh;
 }

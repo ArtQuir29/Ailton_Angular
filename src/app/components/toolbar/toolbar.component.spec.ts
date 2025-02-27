@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageContainerComponent } from './page-container.component';
+import { ToolbarComponent } from './toolbar.component';
 
-describe('PageContainerComponent', () => {
-  let component: PageContainerComponent;
-  let fixture: ComponentFixture<PageContainerComponent>;
+describe('ToolbarComponent', () => {
+  let component: ToolbarComponent;
+  let fixture: ComponentFixture<ToolbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PageContainerComponent]
+      imports: [ToolbarComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PageContainerComponent);
+    fixture = TestBed.createComponent(ToolbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
