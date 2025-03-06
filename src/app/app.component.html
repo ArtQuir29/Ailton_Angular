@@ -1,10 +1,7 @@
-<app-navbar></app-navbar>
 
-<div class="container">
-
-  <app-sidebar></app-sidebar>
-  <app-page-content></app-page-content>
-  
+<div *ngIf="isLoggedIn">
+  <app-navbar [userName]="userName" (logout)="onLogout()"></app-navbar>
+  <app-page-container></app-page-container>
 </div>
   
     <!-- 

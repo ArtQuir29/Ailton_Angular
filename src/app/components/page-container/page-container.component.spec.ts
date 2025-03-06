@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BreadconmbsComponent } from './breadconmbs.component';
+import { PageContainerComponent } from './page-container.component';
 
-describe('BreadconmbsComponent', () => {
-  let component: BreadconmbsComponent;
-  let fixture: ComponentFixture<BreadconmbsComponent>;
+describe('PageContainerComponent', () => {
+  let component: PageContainerComponent;
+  let fixture: ComponentFixture<PageContainerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BreadconmbsComponent]
+      imports: [PageContainerComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BreadconmbsComponent);
+    fixture = TestBed.createComponent(PageContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

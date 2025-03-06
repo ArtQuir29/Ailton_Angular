@@ -1,28 +1,51 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Ejercicio01Component } from './ejercicio-01/ejercicio-01.component';
-import { Ejercicio02Component } from './ejercicio-02/ejercicio-02.component';
-import { Ejercicio03Component } from './ejercicio-03/ejercicio-03.component';
-import { Ejercicio04Component } from './ejercicio-04/ejercicio-04.component';
-import { Ejercicio05Component } from './ejercicio-05/ejercicio-05.component';
-import { Ejercicio06Component } from './ejercicio-06/ejercicio-06.component';
-
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { PageContainerComponent } from "./components/page-container/page-container.component";
 
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { PageContentComponent } from './components/page-content/page-content.component';
-import { FooterContentComponent } from './components/footer-content/footer-content.component';
-import { BreadconmbsComponent } from './components/breadconmbs/breadconmbs.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true, 
-  imports: [RouterOutlet, Ejercicio01Component, Ejercicio02Component, Ejercicio03Component, Ejercicio04Component, Ejercicio05Component, Ejercicio06Component,
-     ToolbarComponent, NavbarComponent, SidebarComponent, PageContentComponent, FooterContentComponent, BreadconmbsComponent],
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterOutlet,
+    NavbarComponent,
+    PageContainerComponent,
+   
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'ManualEjercicios_Angular_220773';
+export class AppComponent implements OnInit {
+  title = 'ManualEjercicios_Angular_230733';
+  isLoggedIn: boolean = false; // Agregar estado de login
+  userName: string = ''; // Agregar nombre de usuario
+
+  ngOnInit() {
+    // Recuperar el estado de login y el nombre de usuario desde localStorage
+    const storedIsLoggedIn = localStorage.getItem('isLoggedIn');
+    const storedUserName = localStorage.getItem('userName');
+    this.isLoggedIn = storedIsLoggedIn === 'true';
+    this.userName = storedUserName || '';
+  }
+
+  onLoginSuccess(name: string) {
+    this.isLoggedIn = true;
+    this.userName = name;
+    // Guardar el estado de login y el nombre de usuario en localStorage
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('userName', name);
+  }
+
+  onLogout() {
+    this.isLoggedIn = false;
+    this.userName = '';
+    // Limpiar el estado de login y el nombre de usuario en localStorage
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userName');
+  }
 }
